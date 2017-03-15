@@ -41,6 +41,10 @@ Array.prototype.remove = function (obj) {
  * mock模拟后台数据
  * */
 
+Mock.setup({
+  timeout: '200-600'
+});
+
 //登录
 let login = {
   'result|1': ['SUCCESS', 'FAILED', 'CHANGE_PASSWORD'],

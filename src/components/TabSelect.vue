@@ -40,58 +40,56 @@
         this.curWay = ['nodeRandom', 'areaRandom', 'nodeSet'][this.index];
       }
     },
-    created(){
+    beforeMount(){
       let index = location.href.indexOf('?user=') + 6,
           user  = location.href.substring(index),
           _this = this;
       console.log(user);
-      setTimeout(function () {
-        _this.ajax({
-          url: '/getServers',
-          data: user,
-          cbfn: function (data) {
-            if (data) {
-              for (let i of data.list) {
-                let cityNum  = i.city + i.line_index,
-                    nodeInfo = {
-                      name: cityNum,
-                      delay: i.delay,
-                      state: i.delay > 1000 ? '超时' : '正常'
-                    };
-                /*普通节点*/
-                if (!i.limit) {
-                  if (!_this.cityList[i.country]) {
-                    _this.areaList.push(i.country);
-                    _this.cityList[i.country] = [];
-                    _this.areaNodeList[i.country] = [];
-                  }
-                  if (_this.cityList[i.country].indexOf(i.city) == -1) {
-                    _this.cityList[i.country].push(i.city);
-                    _this.nodeList[i.city] = []
-                  }
-                  _this.areaNodeList[i.country].push(nodeInfo);
-                  _this.nodeList[i.city].push(nodeInfo)
+      _this.ajax({
+        url: '/getServers',
+        data: user,
+        cbfn: function (data) {
+          if (data) {
+            for (let i of data.list) {
+              let cityNum  = i.city + i.line_index,
+                  nodeInfo = {
+                    name: cityNum,
+                    delay: i.delay,
+                    state: i.delay > 1000 ? '超时' : '正常'
+                  };
+              /*普通节点*/
+              if (!i.limit) {
+                if (!_this.cityList[i.country]) {
+                  _this.areaList.push(i.country);
+                  _this.cityList[i.country] = [];
+                  _this.areaNodeList[i.country] = [];
                 }
-                /*入口*/
-                if (i.limit == 1) {
-                  _this.inOutData.nodeIn[0].push(cityNum)
+                if (_this.cityList[i.country].indexOf(i.city) == -1) {
+                  _this.cityList[i.country].push(i.city);
+                  _this.nodeList[i.city] = []
                 }
-                /*出口*/
-                if (i.limit == 2) {
-                  _this.inOutData.nodeOut[0].push(cityNum)
-                }
+                _this.areaNodeList[i.country].push(nodeInfo);
+                _this.nodeList[i.city].push(nodeInfo)
               }
-              console.log(_this.areaList);
-              console.log(_this.inOutData);
-              /*中级用户删除出入口的空选项*/
-              if (data.userType == 1) {
-                _this.inOutData.nodeIn[0].shift();
-                _this.inOutData.nodeOut[0].shift()
+              /*入口*/
+              if (i.limit == 1) {
+                _this.inOutData.nodeIn[0].push(cityNum)
               }
-              _this.permission = data.userType;
+              /*出口*/
+              if (i.limit == 2) {
+                _this.inOutData.nodeOut[0].push(cityNum)
+              }
             }
+            console.log(_this.areaList);
+            console.log(_this.inOutData);
+            /*中级用户删除出入口的空选项*/
+            if (data.userType == 1) {
+              _this.inOutData.nodeIn[0].shift();
+              _this.inOutData.nodeOut[0].shift()
+            }
+            _this.permission = data.userType;
           }
-        })
+        }
       })
     }
   }
