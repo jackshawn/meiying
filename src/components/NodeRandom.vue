@@ -8,15 +8,16 @@
         <checker-item :value=3>3跳</checker-item>
       </checker>
     </div>
-    <IOandJump :inOutData="inOutData" :jumpData="jumpData" :permission="permission" v-on:changeTimes="changeTimes"></IOandJump>
+    <IOandJump :inOutData="inOutData" :jumpData="jumpData" :permission="permission"
+               v-on:changeTimes="changeTimes"></IOandJump>
   </div>
 </template>
 <script>
-  import { Checker, CheckerItem, Divider} from 'vux'
+  import {Checker, CheckerItem, Divider} from 'vux'
   import IOandJump from './IOandJump'
   export default {
     components: {
-       Checker, CheckerItem, Divider, IOandJump
+      Checker, CheckerItem, Divider, IOandJump
     },
     data () {
       return {
@@ -24,31 +25,17 @@
         jumpData: []
       }
     },
-    props: ['permission','inOutData'],
+    props: ['permission', 'inOutData'],
     methods: {
       changeTimes(t){
-          this.jumpTimes = t*1;
+        this.jumpTimes = t * 1;
       }
     },
-    watch:{
-      jumpTimes:function () {
-        this.jumpData = new Array(this.jumpTimes*1).fill({name: '随机'});
-      },
-      permission:function (val) {
-        if(val==1){
-            this.inOutData = {
-              nodeIn: [['智能选择', '香港1', '香港2']],
-              nodeOut: [[ '智能选择', '香港3', '香港4']],
-            }
-        }else{
-          this.inOutData = {
-            nodeIn: [['', '智能选择', '香港1', '香港2']],
-            nodeOut: [['', '智能选择', '香港3', '香港4']],
-          }
-        }
+    watch: {
+      jumpTimes: function () {
+        this.jumpData = new Array(this.jumpTimes * 1).fill({name: '随机'});
       }
     }
-    
   }
 </script>
 <style scoped>

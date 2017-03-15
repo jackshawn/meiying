@@ -1,19 +1,14 @@
 <template>
   <div>
-    <checker v-model="permission" default-item-class="area-item" selected-item-class="area-item-selected">
-      <checker-item :value=0>初级用户</checker-item>
-      <checker-item :value=1>中级用户</checker-item>
-      <checker-item :value=2>高级用户</checker-item>
-    </checker>
     <head-steps :cur=1></head-steps>
     <br>
     <x-hr></x-hr>
-    <tab-select :permission="permission"></tab-select>
+    <tab-select></tab-select>
     <br>
   </div>
 </template>
 <script>
-  import {XHr, Checker, CheckerItem} from 'vux'
+  import {XHr} from 'vux'
   import headSteps from './components/Steps'
   import tabSelect from './components/TabSelect.vue'
   
@@ -21,12 +16,10 @@
     components: {
       XHr,
       headSteps,
-      tabSelect, Checker, CheckerItem
+      tabSelect
     },
     data () {
-      return {
-        permission: 0
-      }
+      return {}
     },
     methods: {}
   }

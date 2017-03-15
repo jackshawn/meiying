@@ -18,6 +18,9 @@
       </cell>
     </group>
     <group :title="citySelected+'节点列表'" v-if="showScroll">
+      <x-button mini style="position: absolute;right: 17px;top: -10px;z-index:99"
+                @click.native="showScroll=false;citySelected=''">x
+      </x-button>
       <scroller lock-x scrollbar-y style="max-height: 130px">
         <div>
           <cell v-for="node in nodeList[citySelected]" :title="node.name+',延迟:'+node.delay+'ms,状态:'+node.state"></cell>
@@ -25,28 +28,16 @@
       </scroller>
     </group>
     <IOandJump :inOutData="inOutData" :jumpData="jumpData" :permission="permission"
-                   @deleteNode="delNode"></IOandJump>
+               @deleteNode="delNode"></IOandJump>
     <alert v-model="showMsg"> {{msgText}}</alert>
   </div>
 </template>
 
 <script>
-  import {
-     Checker, CheckerItem, Divider, Cell, Group, XButton, Alert, Scroller
-  } from 'vux'
+  import {Checker, CheckerItem, Divider, Cell, Group, XButton, Alert, Scroller} from 'vux'
   import IOandJump from './IOandJump'
   export default {
-    components: {
-      Checker,
-      CheckerItem,
-      Divider,
-      Cell,
-      Group,
-      XButton,
-      Alert,
-      IOandJump,
-      Scroller
-    },
+    components: {Checker, CheckerItem, Divider, Cell, Group, XButton, Alert, IOandJump, Scroller},
     data () {
       return {
         areaSelected: '',
@@ -58,7 +49,7 @@
         jumpData: []
       }
     },
-    props: ['permission','areaList','cityList','nodeList','inOutData'],
+    props: ['permission', 'areaList', 'cityList', 'nodeList', 'inOutData'],
     methods: {
       addNode(city){
         if (this.nodeNum[city].cur) {
@@ -79,7 +70,7 @@
       showList(city){
         if (city != this.citySelected) {
           this.citySelected = city;
-          this.showScroll = false
+          this.showScroll = false;
           let _this = this;
           setTimeout(function () {
             _this.showScroll = true
