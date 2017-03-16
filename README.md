@@ -1,8 +1,8 @@
 # meiying
 
-> A Vue.js project
+> fq工具移动端页面。框架使用[Vue](http://cn.vuejs.org/)，UI组件使用[VUX](https://vux.li)，并借助[Mockjs](http://mockjs.com/)模拟后端数据。
 
-## Build Setup
+### setup
 
 ``` bash
 # install dependencies
@@ -10,12 +10,11 @@ npm install
 
 # serve with hot reload at localhost:8080
 npm run dev
-
-# build for production with minification
-npm run build
-
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+### demo pics
+[login]:https://github.com/jackshawn/meiying/blob/master/img/login.jpg
+[random]:https://github.com/jackshawn/meiying/blob/master/img/random.jpg
+[area]:https://github.com/jackshawn/meiying/blob/master/img/area.jpg
+[set]:https://github.com/jackshawn/meiying/blob/master/img/set.jpg
+[success]:https://github.com/jackshawn/meiying/blob/master/img/success.jpg
