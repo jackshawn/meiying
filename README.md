@@ -16,15 +16,8 @@ npm run dev
 
 #### login
 
-![login](./img/login.jpg)
+![login](./img/login.jpg) ![success](./img/success.jpg)
 
 #### select node
 
-![random](./img/random.jpg) ![area](./img/area.jpg) ![set](./img/set.jpg)
-
-#### success
-
-![success](./img/success.jpg)
-   
-   
-  
+![random](./img/random.jpg)  ![area](./img/area.jpg)  ![set](./img/set.jpg)
