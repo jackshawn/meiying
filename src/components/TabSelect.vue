@@ -55,7 +55,9 @@
                   nodeInfo = {
                     name: cityNum,
                     delay: i.delay,
-                    state: i.delay > 1000 ? '超时' : '正常'
+                    state: i.delay > 1000 ? '超时' : '正常',
+                    used: false,//标识是否已经添加过
+                    color: i.delay<500?'#1aad19':(i.delay<1000?'orange':'#e64340')
                   };
               /*普通节点*/
               if (!i.limit) {
