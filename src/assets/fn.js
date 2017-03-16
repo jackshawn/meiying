@@ -56,8 +56,8 @@ let nodes = {
   'userType|1': [0, 1, 2],
   'list': [
     {
-      'limit|1': [0, 1, 2],
-      'delay|1-2000': 1000,
+      'limit': 0,
+      'delay|1-1200': 1000,
       'line_index': 1,
       'country': '中国',
       'province': '江苏',
@@ -65,8 +65,8 @@ let nodes = {
       'ip': Mock.Random.ip()
     },
     {
-      'limit|1': [0, 1, 2],
-      'delay|1-2000': 1000,
+      'limit': 0,
+      'delay|1-1200': 1000,
       'line_index': 2,
       'country': '中国',
       'province': '江苏',
@@ -74,8 +74,8 @@ let nodes = {
       'ip': Mock.Random.ip()
     },
     {
-      'limit|1': [0, 1, 2],
-      'delay|1-2000': 1000,
+      'limit': 0,
+      'delay|1-1200': 1000,
       'line_index': 3,
       'country': '中国',
       'province': '江苏',
@@ -83,8 +83,17 @@ let nodes = {
       'ip': Mock.Random.ip()
     },
     {
-      'limit|1': [0, 1, 2],
-      'delay|1-2000': 1000,
+      'limit': 0,
+      'delay|1-1200': 1000,
+      'line_index': 4,
+      'country': '中国',
+      'province': '江苏',
+      'city': '南京',
+      'ip': Mock.Random.ip()
+    },
+    {
+      'limit': 0,
+      'delay|1-1200': 1000,
       'line_index': 1,
       'country': '中国',
       'province': '江苏',
@@ -92,8 +101,8 @@ let nodes = {
       'ip': Mock.Random.ip()
     },
     {
-      'limit|1': [0, 1, 2],
-      'delay|1-2000': 1000,
+      'limit': 0,
+      'delay|1-1200': 1000,
       'line_index': 1,
       'country': '中国',
       'province': '上海',
@@ -101,26 +110,8 @@ let nodes = {
       'ip': Mock.Random.ip()
     },
     {
-      'limit|1': [0, 1, 2],
-      'delay|1-2000': 1000,
-      'line_index': 1,
-      'country': '中国',
-      'province': '香港',
-      'city': '香港',
-      'ip': Mock.Random.ip()
-    },
-    {
-      'limit|1': [0, 1, 2],
-      'delay|1-2000': 1000,
-      'line_index': 2,
-      'country': '中国',
-      'province': '香港',
-      'city': '香港',
-      'ip': Mock.Random.ip()
-    },
-    {
-      'limit|1': [0, 1, 2],
-      'delay|1-2000': 1000,
+      'limit': 0,
+      'delay|1-1200': 1000,
       'line_index': 1,
       'country': '美国',
       'province': 'xx州',
@@ -128,8 +119,8 @@ let nodes = {
       'ip': Mock.Random.ip()
     },
     {
-      'limit|1': [0, 1, 2],
-      'delay|1-2000': 1000,
+      'limit': 0,
+      'delay|1-1200': 1000,
       'line_index': 1,
       'country': '韩国',
       'province': '韩xx市',
@@ -137,8 +128,8 @@ let nodes = {
       'ip': Mock.Random.ip()
     },
     {
-      'limit|1': [0, 1, 2],
-      'delay|1-2000': 1000,
+      'limit': 0,
+      'delay|1-1200': 1000,
       'line_index': 1,
       'country': '日本',
       'province': '日本xx市',
@@ -146,8 +137,8 @@ let nodes = {
       'ip': Mock.Random.ip()
     },
     {
-      'limit|1': [0, 1, 2],
-      'delay|1-2000': 1000,
+      'limit': 0,
+      'delay|1-1200': 1000,
       'line_index': 2,
       'country': '日本',
       'province': '日本xx市',
@@ -155,14 +146,50 @@ let nodes = {
       'ip': Mock.Random.ip()
     },
     {
-      'limit|1': [0, 1, 2],
-      'delay|1-2000': 1000,
+      'limit': 0,
+      'delay|1-1200': 1000,
       'line_index': 3,
       'country': '日本',
       'province': '日本xx市',
       'city': '东京',
       'ip': Mock.Random.ip()
     },
+    {
+      'limit': 1,
+      'delay|1-1200': 1000,
+      'line_index': 1,
+      'country': '香港',
+      'province': '香港',
+      'city': '香港',
+      'ip': Mock.Random.ip()
+    },
+    {
+      'limit': 1,
+      'delay|1-1200': 1000,
+      'line_index': 2,
+      'country': '香港',
+      'province': '香港',
+      'city': '香港',
+      'ip': Mock.Random.ip()
+    },
+    {
+      'limit': 2,
+      'delay|1-1200': 1000,
+      'line_index': 1,
+      'country': '澳门',
+      'province': '澳门',
+      'city': '澳门',
+      'ip': Mock.Random.ip()
+    },
+    {
+      'limit': 2,
+      'delay|1-1200': 1000,
+      'line_index': 2,
+      'country': '澳门',
+      'province': '澳门',
+      'city': '澳门',
+      'ip': Mock.Random.ip()
+    }
   ]
 };
 Mock.mock('/login', login);
