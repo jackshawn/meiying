@@ -14,18 +14,17 @@
       <scroller lock-x scrollbar-y style="max-height: 320px" v-if="showScroll">
         <div>
           <cell v-for="item in areaNodeList[areaSelected]" :title="item.name+',延迟:'+item.delay+'ms,状态:'+item.state">
-            <x-button mini @click.native="addNode(item.name)">+</x-button>
+            <x-button :disabled="item.used" mini @click.native="addNode(item.name,index)">+</x-button>
           </cell>
         </div>
       </scroller>
       <div v-if="!showScroll">
-        <cell v-for="item in areaNodeList[areaSelected]" :title="item.name+',延迟:'+item.delay+'ms,状态:'+item.state">
-          <x-button mini @click.native="addNode(item.name)">+</x-button>
+        <cell v-for="(item,index) in areaNodeList[areaSelected]" :title="item.name+',延迟:'+item.delay+'ms,状态:'+item.state">
+          <x-button :disabled="item.used" mini @click.native="addNode(item.name,index)">+</x-button>
         </cell>
       </div>
     </group>
-    <IOandJump :inOutData="inOutData" :jumpData="jumpData" :permission="permission"
-                   @deleteNode="delNode"></IOandJump>
+    <IOandJump :inOutData="inOutData" :jumpData="jumpData" :permission="permission" @deleteNode="delNode"></IOandJump>
     <alert v-model="msgShow">{{msgText}}</alert>
   </div>
 </template>
@@ -46,30 +45,25 @@
     },
     props: ['permission', 'areaList', 'areaNodeList', 'inOutData'],
     methods: {
-      addNode(city){
-        let mark = true;
-        for (let i = 0; i < this.jumpData.length; i++) {
-          if (this.jumpData[i].name == city) {
-            mark = false;
-            break
-          }
-        }
-        if (mark) {
-          if (this.totalNum < 3) {
-            this.jumpData.push({name: city});
-            this.totalNum++;
-          } else {
-            this.msgText = '最多共可以添加3个节点';
-            this.msgShow = true
-          }
+      addNode(city,index){
+        if (this.totalNum < 3) {
+          this.jumpData.push({name: city});
+          this.totalNum++;
+          this.areaNodeList[this.areaSelected][index].used = true;
         } else {
-          this.msgText = '已经添加过该节点';
-          this.msgShow = true;
+          this.msgText = '最多共可以添加3个节点';
+          this.msgShow = true
         }
       },
       delNode(city){
         this.totalNum--;
         this.jumpData = this.jumpData.remove({name: city});
+        for (let i = 0; i < this.areaNodeList[this.areaSelected].length; i++) {
+          if (this.areaNodeList[this.areaSelected][i].name == city) {
+            this.areaNodeList[this.areaSelected][i].used = false;
+            break
+          }
+        }
       },
     },
     
