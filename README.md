@@ -13,8 +13,18 @@ npm run dev
 ```
 
 ### demo pics
-[login]:https://github.com/jackshawn/meiying/blob/master/img/login.jpg
-[random]:https://github.com/jackshawn/meiying/blob/master/img/random.jpg
-[area]:https://github.com/jackshawn/meiying/blob/master/img/area.jpg
-[set]:https://github.com/jackshawn/meiying/blob/master/img/set.jpg
-[success]:https://github.com/jackshawn/meiying/blob/master/img/success.jpg
+
+#### login
+
+![login](./img/login.jpg)
+
+#### select node
+
+![random](./img/random.jpg) ![area](./img/area.jpg) ![set](./img/set.jpg)
+
+#### success
+
+![success](./img/success.jpg)
+   
+   
+  
