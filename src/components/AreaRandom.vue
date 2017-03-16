@@ -23,7 +23,7 @@
       </x-button>
       <scroller lock-x scrollbar-y style="max-height: 130px">
         <div>
-          <cell v-for="node in nodeList[citySelected]" :title="node.name+',延迟:'+node.delay+'ms,状态:'+node.state"></cell>
+          <cell style="padding-left: 30px" v-for="node in nodeList[citySelected]" :title="node.name+',延迟:'+node.delay+'ms,状态:'+node.state"><span class="dot" :style="{background:node.color}"></span></cell>
         </div>
       </scroller>
     </group>
@@ -128,5 +128,14 @@
   
   .area-item-selected {
     border: 2px solid #04be02;
+  }
+  
+  .dot{
+    position: absolute;
+    left: 15px;
+    top: 19px;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
   }
 </style>

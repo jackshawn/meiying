@@ -13,14 +13,14 @@
     <group title="节点列表">
       <scroller lock-x scrollbar-y style="max-height: 320px" v-if="showScroll">
         <div>
-          <cell v-for="item in areaNodeList[areaSelected]" :title="item.name+',延迟:'+item.delay+'ms,状态:'+item.state">
-            <x-button :disabled="item.used" mini @click.native="addNode(item.name,index)">+</x-button>
+          <cell style="padding-left: 30px" v-for="item in areaNodeList[areaSelected]" :title="item.name+',延迟:'+item.delay+'ms,状态:'+item.state">
+            <span class="dot" :style="{background:item.color}"></span> <x-button :disabled="item.used" mini @click.native="addNode(item.name,index)">+</x-button>
           </cell>
         </div>
       </scroller>
       <div v-if="!showScroll">
-        <cell v-for="(item,index) in areaNodeList[areaSelected]" :title="item.name+',延迟:'+item.delay+'ms,状态:'+item.state">
-          <x-button :disabled="item.used" mini @click.native="addNode(item.name,index)">+</x-button>
+        <cell style="padding-left: 30px" v-for="(item,index) in areaNodeList[areaSelected]" :title="item.name+',延迟:'+item.delay+'ms,状态:'+item.state">
+          <span class="dot" :style="{background:item.color}"></span> <x-button :disabled="item.used" mini @click.native="addNode(item.name,index)">+</x-button>
         </cell>
       </div>
     </group>

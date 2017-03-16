@@ -25,6 +25,7 @@
     <div class="padding5">
         <x-button type="primary" @click.native="post">确定</x-button>
     </div>
+    <br>
   </div>
 </template>
 <script>
