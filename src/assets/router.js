@@ -8,13 +8,13 @@ import Pwd from '../Pwd'
 Vue.use(Router);
 
 const routes = [
-  {path: '/', component: Step1},
-  {path: '/login/step1', component: Step1},
-  {path: '/login/step2', component: Step2},
-  {path: '/login/step3', component: Step3},
-  {path: '/pwd', component: Pwd}
+    {path: '/', component: Step1},
+    {path: '/login/step1', component: Step1},
+    {path: '/login/step2', component: Step2},
+    {path: '/login/step3', component: Step3},
+    {path: '/pwd', component: Pwd}
 ];
 
 export default new Router({
-  routes
+    routes
 })

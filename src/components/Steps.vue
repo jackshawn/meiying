@@ -1,35 +1,34 @@
 <template>
-  <div>
-    <br>
-    <div class="steps">
-        <step  background-color='#fbf9fe' v-model="cur">
-          <step-item title="登录"></step-item>
-          <step-item title="选择节点"></step-item>
-          <step-item title="上网"></step-item>
-        </step>
+    <div>
+        <br>
+        <div class="steps">
+            <step background-color='#fbf9fe' v-model="cur">
+                <step-item title="登录"></step-item>
+                <step-item title="选择节点"></step-item>
+                <step-item title="上网"></step-item>
+            </step>
+        </div>
     </div>
-  </div>
 </template>
 <script>
-  import {Step, StepItem} from 'vux'
-  export default {
-    components: {
-      Step,
-      StepItem
-    },
-    props:['cur'],
-    data () {
-      return {
+    import {Step, StepItem} from 'vux'
+    export default {
+        components: {
+            Step,
+            StepItem
+        },
+        props: ['cur'],
+        data(){
+            return {
 //        step: cur
-      }
-    },
-    methods: {
+            }
+        },
+        methods: {}
     }
-  }
 </script>
 <style scoped>
-  .steps {
-    width: 95%;
-    margin: 0 auto;
-  }
+    .steps {
+        width: 95%;
+        margin: 0 auto;
+    }
 </style>

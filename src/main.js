@@ -8,8 +8,8 @@ import fn from './assets/fn'//工具函数
 FastClick.attach(document.body);
 
 new Vue({
-  router,
-  render: h => h(App)
+    router,
+    render: h => h(App)
 }).$mount('#app-box')
 
 
